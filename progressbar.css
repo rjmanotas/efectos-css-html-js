@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700");
+
+:root
+{
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #bd5d38;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+}
+
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Saira', sans-serif;
+} 
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(#444, #222);
+}
+
+.container
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.container .card
+{
+    position: relative;
+    background: #2a2a2a;
+}
+
+.card
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    
+}
+.card .rating
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    /*background: #000;*/
+}
+
+.card .rating .block
+{
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #000;
+    left: 50%;
+    transform-origin: 50% 100px;
+    opacity: 0;
+    animation: animate 0.1s linear forwards;
+    /*transform: rotate();*/
+}
+
+@keyframes animate
+{
+    to
+    {
+        opacity: 1;
+    } 
+}
+.card .rating .block:nth-child(-n+91) /* get +1 value up of given data*/
+
+{
+    background: #f00;
+    box-shadow: 0 0 15px #f00,0 0 30px #f00;
+}
+
+.card .rating h2
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.card .rating h2 span
+{
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.card .rating h2 sup
+{
+    font-size: 1.5em;
+    font-weight: 3 00;
+}
+
+
+
+
+
+.container .card .percent svg circle:nth-child(2)
+{
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.dot
+{
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    transform: rotate(calc(3.6deg * var(--num)));
+    animation: animateDot 2s linear forwards;
+}
+@keyframes animateDot {
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.dot::before
+{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+}
+
+.number
+{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+.number h2
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+.number h2 span
+{
+    font-weight: 300;
+    color: #fff;
+    font-size: 0.5em;
+}
+
+.number p
+{
+    font-weight: 300;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
